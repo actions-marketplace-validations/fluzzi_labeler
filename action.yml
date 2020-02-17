@@ -1,6 +1,6 @@
-name: 'Pull Request Labeler'
+name: 'My personal labeler'
 description: 'Add labels to new pull requests based on the files that are changed'
-author: 'GitHub'
+author: 'fluzzi'
 inputs: 
   repo-token:
     description: 'The GITHUB_TOKEN secret'
