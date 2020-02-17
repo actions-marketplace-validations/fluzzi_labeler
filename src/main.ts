@@ -128,7 +128,7 @@ function checkGlobs(changedFiles: string[], globs: string[]): boolean {
         check = check + 1;
       }
     }
-    if ()changedFiles.length == check)
+    if (changedFiles.length == check)
       {
         return true;
       }
