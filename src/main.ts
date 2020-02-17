@@ -28,6 +28,7 @@ async function run() {
       core.debug(`processing ${label}`);
       if (checkGlobs(changedFiles, globs)) {
         labels.push(label);
+        return
       }
     }
 
@@ -120,18 +121,13 @@ function checkGlobs(changedFiles: string[], globs: string[]): boolean {
   for (const glob of globs) {
     core.debug(` checking pattern ${glob}`);
     const matcher = new Minimatch(glob);
-    var check = 0;
     for (const changedFile of changedFiles) {
       core.debug(` - ${changedFile}`);
       if (matcher.match(changedFile)) {
         core.debug(` ${changedFile} matches`);
-        check = check + 1;
-      }
-    }
-    if (changedFiles.length == check)
-      {
         return true;
       }
+    }
   }
   return false;
 }
